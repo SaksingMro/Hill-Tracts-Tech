@@ -10,16 +10,14 @@ const storage = multer.diskStorage({
       null,
       new Date().toISOString().replace(/:/g, "-") + "-" + file.originalname
      
-    ); // 22/12/2022  27:12:2022 10:01:2023 10-01-2023-abcd.jpg
+    );
   },
 });
 
 // Specify file format that can be saved
 function fileFilter(req, file, cb) {
   if (
-    file.mimetype === "image/png" ||
-    file.mimetype === "image/jpg" ||
-    file.mimetype === "image/jpeg"
+    file.mimetype === "image/svg/"
   ) {
     cb(null, true);
   } else {
@@ -27,5 +25,5 @@ function fileFilter(req, file, cb) {
   }
 }
 
-const upload = multer({ storage, fileFilter });
+const upload = multer({ storage });
 module.exports = { upload };

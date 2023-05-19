@@ -15,16 +15,12 @@ const createService = asyncHandler(async (req, res) => {
 
   // Handle Image upload
   let fileData = {};
-  if (req.file) {    
-
-    fileData = {
-      fileName: req.file.originalname,
-      filePath: req.file.path,
-      fileType: req.file.mimetype,
-      fileSize: req.file.size
+  if(req.file){
+    fileData={
+      fileName:req.file.originalname,
+      fileType:req.file.mimetype
     };
   }
-
   // Create Service
   const service = await Service.create({
     title,
@@ -33,7 +29,6 @@ const createService = asyncHandler(async (req, res) => {
   });
 
   // console.log(service)
-
   res.status(201).json(service);
 
   });

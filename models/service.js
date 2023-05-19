@@ -18,7 +18,6 @@ const serviceSchema = mongoose.Schema(
     },
   },
   {
-    timestamps: true,
     versionKey:false
   }
 );

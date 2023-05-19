@@ -21,7 +21,7 @@ app.use(cors());
 
 
 // routes middleware
-readdirSync("./routes").map(r => app.use("/api/v1", require(`./routes/${r}`))) 
+readdirSync("./routes").map(r => app.use("/api/hill-tracts-tech", require(`./routes/${r}`))) 
 
 // server
 const port = process.env.PORT || 8000;
@@ -35,4 +35,3 @@ mongoose
     });
   })
   .catch((err) => console.log(err));
-
